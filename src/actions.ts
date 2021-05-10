@@ -1,0 +1,12 @@
+type Actions = {
+  SNACKBAR: 'SNACKBAR';
+  NEXT_STEP: 'NEXT_STEP';
+  PREV_STEP: 'PREV_STEP';
+  SET_FILES: 'SET_FILES';
+  SET_TYPE: 'SET_TYPE';
+  UPLOAD: 'UPLOAD';
+  SET_CHARM_INFO: 'SET_CHARM_INFO';
+  RESET: 'RESET';
+};
+
+export default Actions;

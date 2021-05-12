@@ -18,6 +18,8 @@ import Catalog from './Catalog';
 import Pages from './Pages';
 import Footer from './Footer';
 
+import AdsCard from './AdsCard';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     body: {
@@ -27,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: '10px',
       marginBottom: '10px',
       width: '96%',
-      maxWidth: '1000px',
+      maxWidth: '1010px',
     },
   })
 );
@@ -50,6 +52,7 @@ function App() {
   return (
     Support ?
       <div className={classes.body}>
+        <AdsCard data-ad-slot={ process.env.REACT_APP_GOOGLE_AD_SLOT_BANNER_TOP ?? ''} />
         <Card elevation={5} className={classes.root}>
           <CardContent>
             <ThemeProvider theme={theme}>
@@ -74,6 +77,7 @@ function App() {
             </Snackbar>
           </CardContent>
         </Card>
+        <AdsCard data-ad-slot={process.env.REACT_APP_GOOGLE_AD_SLOT_BANNER_BOTTOM ?? ''} />
       </div>
     :
       <div>

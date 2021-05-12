@@ -8,6 +8,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { useStore, useDispatch } from '../store';
 
+import AdsCard from '../AdsCard';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {},
@@ -49,6 +51,7 @@ function Detect() {
     <div className={classes.root}>
       <Typography variant="body1">解析中です。この処理には数十秒〜数分程度かかります。</Typography>
       <LinearProgress className={classes.progress}/>
+      <AdsCard data-ad-slot={process.env.REACT_APP_GOOGLE_AD_SLOT_SQUARE_DETECT ?? ''} />
     </div>
   );
 }

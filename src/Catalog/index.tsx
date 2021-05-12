@@ -58,20 +58,21 @@ function Index() {
     '検出不可',
   ];
 
-  const ar = [
-    [    Skill,     Level,     Slot],
-    [LackSkill, LackLevel, LackSlot],
+  const table = [
+        Skill.concat(    Level.map(l => 'スキルLv ' + l)).concat(    Slot.map(s => 'スロットLv ' + s)),
+    LackSkill.concat(LackLevel.map(l => 'スキルLv ' + l)).concat(LackSlot.map(s => 'スロットLv ' + s)),
   ];
-  let table: string[][][] = [
-    [],
-    [],
-  ];
+  console.log(table)
+  // let table: string[][][] = [
+  //   [],
+  //   [],
+  // ];
 
-  for (let i = 0; i < 2; i++) {
-    for (let j = 0; j < Math.max(ar[i][0].length, ar[i][1].length, ar[i][2].length); j++) {
-      table[i].push([0, 1, 2].map(k => j < ar[i][k].length ? ar[i][k][j] : (j === 0 ? 'なし' : '')))
-    }
-  }
+  // for (let i = 0; i < 2; i++) {
+  //   for (let j = 0; j < Math.max(ar[i][0].length, ar[i][1].length, ar[i][2].length); j++) {
+  //     table[i].push([0, 1, 2].map(k => j < ar[i][k].length ? ar[i][k][j] : (j === 0 ? 'なし' : '')))
+  //   }
+  // }
 
   return (
     <div className={classes.root}>
@@ -96,7 +97,7 @@ function Index() {
                       <TableBody>
                         {table[i].map(row => 
                           <TableRow>
-                            <TableCell>{row[0]}</TableCell>
+                            <TableCell>{row}</TableCell>
                           </TableRow>
                         )}
                       </TableBody>
@@ -113,9 +114,7 @@ function Index() {
           <Box m={0.5}>
             <Typography variant="body1">もし<Typography variant="body1" className={classes.bold}>検出不可</Typography>
             に分類されている情報を含む護石の入手時のスクリーンショットをお持ちの方がいらっしゃいましたら
-            <Typography variant="body1" className={classes.bold}>
-              <Link href="https://forms.gle/t3iG1fF7h7mM9jkb8">こちら</Link>
-            </Typography>
+            <Link href="https://forms.gle/t3iG1fF7h7mM9jkb8">こちら</Link>
             より提供いただけますと大変助かります。</Typography>
           </Box>
         </Box>

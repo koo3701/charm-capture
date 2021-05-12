@@ -9,6 +9,8 @@ import Divider from '@material-ui/core/Divider';
 
 import { PagesTitle, PagesType, useRedirect } from './Pages';
 
+import AdsCard from './AdsCard';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {},
@@ -41,6 +43,7 @@ function Header() {
   return (
     <>
       <Typography onClick={() => redirect('/')} variant="h4" className={classes.title}>MHRise 護石キャプチャー</Typography>
+      <AdsCard data-ad-slot={process.env.REACT_APP_GOOGLE_AD_SLOT_SQUARE_TOP ?? ''} />
       <div className={classes.linkGroup}>
         {pages.map(page =>
           page !== location.pathname?

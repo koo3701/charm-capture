@@ -8,9 +8,8 @@ function Link(props: LinkProps) {
   const path = href.replace(/[#?].*/, '');
   return (
     (path in PagesTitle) ?
-      <RtLink to={props.href || '/'} target={props.target} rel={props.rel}>
-        <MtLink {...{ ...props, href: undefined, target: undefined, ref: undefined }} />
-      </RtLink>
+      <MtLink component={RtLink} to={href} {...{ ...props, href: undefined }}>
+      </MtLink>
       :
       <MtLink { ...props } />
   );

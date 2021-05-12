@@ -9,7 +9,9 @@ storage_client = storage.Client()
 
 def charm_capture(request):
   # preflight request時
-  cors_origin = 'https://charmcapture.web.app'
+  cors_origin = 'https://charmcapture.com'
+  if request.remote_addr == '169.254.8.129':
+    cors_origin = '*'
   if request.method == 'OPTIONS':
     headers = {
       'Access-Control-Allow-Origin': cors_origin,
